@@ -16,10 +16,10 @@
   <script>
 
  // initialize the map
-  var map = L.map('map').setView([53.4334836,-1.3672525], 13);
+  var map = L.map('map').setView([53.4334836,-1.3672525], 11);
 
   // load a tile layer
-  L.tileLayer('https://stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png',
+  L.tileLayer('http://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
     {
       maxZoom: 17,
       minZoom: 9
@@ -29,13 +29,13 @@ var wardLayer = L.geoJson( null, {
     style: function(feature){
       var fillColor,
           density = feature.properties.HECTARES;
-      if ( density > 3000 ) fillColor = "#006837";
-      else if ( density > 2000 ) fillColor = "#31a354";
-      else if ( density > 1000 ) fillColor = "#78c679";
-      else if ( density > 500 ) fillColor = "#c2e699";
-      else if ( density > 0 ) fillColor = "#ffffcc";
+      if ( density > 3000 ) fillColor = "#f06837";
+      else if ( density > 2000 ) fillColor = "#a1a354";
+      else if ( density > 1000 ) fillColor = "#a8c679";
+      else if ( density > 500 ) fillColor = "#a2e699";
+      else if ( density > 0 ) fillColor = "#afffcc";
       else fillColor = "#f7f7f7";  // no data
-      return { color: "#999", weight: 1, fillColor: fillColor, fillOpacity: .6 };
+      return { color: "#999", weight: 1, fillColor: fillColor, fillOpacity: .5 };
     },
     onEachFeature: function( feature, layer ){
       layer.bindPopup( "<strong>" + feature.properties.name )
